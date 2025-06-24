@@ -72,5 +72,4 @@ let mixedArray = [
 
 mixedArray.forEach(element => {
     console.log(`Type ${typeof (element)}`);
-
 });
