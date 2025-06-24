@@ -19,12 +19,17 @@ function showFirstAndLast(arr) {
 
 //Question 4
 function vowelCount(word) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
     const vowelCountObject = {};
-    word.split('').forEach(char => {
-        if (isVowel(char)) {
-            vowelCountObject[char] = (vowelCountObject[char] || 0) + 1;
-        }
-    });
+    for (const v of vowels) {
+        vowelCountObject[v] = 0;
+    }
+    word.split('')
+        .forEach(char => {
+            if (isVowel(char)) {
+                vowelCountObject[char] = (vowelCountObject[char] || 0) + 1;
+            }
+        });
     return vowelCountObject;
 }
 
@@ -34,34 +39,61 @@ function isVowel(char) {
 
 //Question 5
 function capitalize(str) {
-    return str.split('').map((char) => {return char.toUpperCase()}).join('');
+    const newStr =
+        str.split('')
+            .map((char) => { return char.toUpperCase() })
+            .join('');
+    return newStr;
 }
 
 //Question 6
 function shiftLetters(str) {
-    return str.split('').map(char => {
-        if (char >= 'a' && char <= 'z') {
-            return char === 'z' ? 'a' : String.fromCharCode(char.charCodeAt(0) + 1);
-        } else if (char >= 'A' && char <= 'Z') {
-            return char === 'Z' ? 'A' : String.fromCharCode(char.charCodeAt(0) + 1);
-        } else {
-            return char;
+    const newStr =
+        str.split('')
+            .map(char => {
+                if (char === ' ') return char;
+                return String.fromCharCode(char.charCodeAt(0) - 1);
+            })
+            .join('');
+    return newStr;
+}
+
+//Question 7
+function swapCase(str) {
+    const strAraay = str.split(' ');
+    strAraay.map((word) => {
+        if (strAraay.indexOf(word) % 2 === 0) {
+            newWord = capitalize(word);
+            strAraay.splice(strAraay.indexOf(word), 1, newWord);
         }
-    }).join('');
+    })
+    const newStr = strAraay.join(' ');
+    return newStr;
 }
 
 
 
-
+// Example run
 const array = [1, 2, 3, 4];
-const array2 = ["jsj", 4, 5, 6]
-const str = "hello to yoou"
+const array2 = ["jsj", 4, 5, "hello"]
+const str = "hello to yoou noe tou go home"
+
+//1
 //console.log(doubleValues(array));
+//2
 //console.log(onlyEvenValues(array));
+//3
 //console.log(showFirstAndLast(array2));
+//4
 //console.log(vowelCount(str));
+//5
 //console.log(capitalize(str));
-console.log(shiftLetters(str));
+//6
+//console.log(shiftLetters(str));
+//7
+console.log(swapCase(str));
+
+
 
 
 
