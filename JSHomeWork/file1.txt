@@ -1,0 +1,2 @@
+Hello world, welcome to Node.js!
+My name is Menachem Salzberg, how are you doing today!!
